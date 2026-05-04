@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Трекер подготовки к экзамену</title>
+  <meta name="description" content="Интерактивный трекер подготовки к экзамену: 172 темы, практика LeetCode и сжатый темп на 11 недель.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">EX</span>
+          <div>
+            <strong>Exam Prep Tracker</strong>
+            <span>подготовка к экзамену + LeetCode</span>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="exportProgressBtn" class="btn ghost">Экспорт прогресса</button>
+          <label class="btn ghost import-label">
+            Импорт прогресса
+            <input id="importProgressInput" type="file" accept="application/json">
+          </label>
+          <button id="resetProgressBtn" class="btn danger">Сброс</button>
+        </div>
+      </nav>
+
+      <section class="infographic-dashboard" id="dashboardInfographic" aria-label="Инфографика прогресса подготовки"></section>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="topics">Темы</button>
+          <button class="tab" data-tab="practice">Практикум</button>
+          <button class="tab" data-tab="plan">План и темп 11 недель</button>
+          <button class="tab" data-tab="guide">Как пользоваться</button>
+        </div>
+
+        <section id="topics" class="tab-panel active">
+          <div class="toolbar">
+            <input id="topicSearch" class="input" placeholder="Поиск по темам, макротемам, разделам...">
+            <select id="sectionFilter" class="input"></select>
+            <select id="levelFilter" class="input"></select>
+            <select id="statusFilter" class="input"></select>
+          </div>
+          <div class="summary-line" id="topicsSummary"></div>
+          <div class="topic-sections" id="topicsList"></div>
+        </section>
+
+        <section id="practice" class="tab-panel">
+          <div class="toolbar">
+            <input id="practiceSearch" class="input" placeholder="Поиск по задачам LeetCode...">
+            <select id="difficultyFilter" class="input"></select>
+            <select id="practiceStatusFilter" class="input"></select>
+            <select id="practiceMacroFilter" class="input"></select>
+          </div>
+          <div class="summary-line" id="practiceSummary"></div>
+          <div class="cards compact" id="practiceList"></div>
+        </section>
+
+        <section id="plan" class="tab-panel">
+          <div class="weeks" id="planList"></div>
+        </section>
+
+        <section id="guide" class="tab-panel">
+          <div class="guide" id="guideList"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Данные взяты из Excel-файла «Трекер подготовки к экзамену с LeetCode».</span>
+      <span>Прогресс хранится в localStorage твоего браузера.</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
