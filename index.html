@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Трекер подготовки к экзамену</title>
-  <meta name="description" content="Интерактивный трекер подготовки к экзамену: 172 темы, практика LeetCode и сжатый темп на 11 недель.">
+  <meta name="description" content="Интерактивный трекер подготовки к экзамену: темы, практика LeetCode, 11 недель и научно обоснованные повторения.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
           <span class="brand-mark">EX</span>
           <div>
             <strong>Exam Prep Tracker</strong>
-            <span>подготовка к экзамену + LeetCode</span>
+            <span>темы · LeetCode · 11 недель · повторения</span>
           </div>
         </div>
         <div class="actions">
@@ -28,7 +28,7 @@
         </div>
       </nav>
 
-      <section class="infographic-dashboard" id="dashboardInfographic" aria-label="Инфографика прогресса подготовки"></section>
+      <section class="infographic-dashboard" id="dashboardInfographic"></section>
     </header>
 
     <main>
@@ -36,6 +36,7 @@
         <div class="tabs" role="tablist">
           <button class="tab active" data-tab="topics">Темы</button>
           <button class="tab" data-tab="practice">Практикум</button>
+          <button class="tab" data-tab="review">Повторение</button>
           <button class="tab" data-tab="plan">План и темп 11 недель</button>
           <button class="tab" data-tab="guide">Как пользоваться</button>
         </div>
@@ -62,6 +63,41 @@
           <div class="cards compact" id="practiceList"></div>
         </section>
 
+        <section id="review" class="tab-panel">
+          <div class="review-intro">
+            <div>
+              <p class="eyebrow">Научно обоснованное повторение</p>
+              <h2>Что повторить сейчас</h2>
+              <p>Раздел строится на интервальном повторении и активном воспроизведении: чем хуже самооценка или статус, тем короче интервал до следующей попытки.</p>
+            </div>
+            <div class="review-formula">
+              <strong>0–1 → 1 день</strong>
+              <span>2 → 2 дня · 3 → 4 дня · 4 → 7 дней · 5 → 14 дней</span>
+            </div>
+          </div>
+          <div class="toolbar review-toolbar">
+            <input id="reviewSearch" class="input" placeholder="Поиск по повторениям...">
+            <select id="reviewKindFilter" class="input">
+              <option value="">Темы и задачи</option>
+              <option value="topic">Только темы</option>
+              <option value="practice">Только задачи</option>
+            </select>
+            <select id="reviewRangeFilter" class="input">
+              <option value="due">Просрочено и сегодня</option>
+              <option value="week">На ближайшие 7 дней</option>
+              <option value="all">Все запланированные</option>
+            </select>
+            <select id="reviewReasonFilter" class="input">
+              <option value="">Все причины</option>
+              <option value="status">Статус «Повторить/Сложно»</option>
+              <option value="score">Низкая самооценка</option>
+              <option value="routine">Плановое повторение</option>
+            </select>
+          </div>
+          <div class="summary-line" id="reviewSummary"></div>
+          <div class="review-list" id="reviewList"></div>
+        </section>
+
         <section id="plan" class="tab-panel">
           <div class="weeks" id="planList"></div>
         </section>
@@ -74,7 +110,7 @@
 
     <footer class="footer">
       <span>Данные взяты из Excel-файла «Трекер подготовки к экзамену с LeetCode».</span>
-      <span>Прогресс хранится в localStorage твоего браузера.</span>
+      <span>Прогресс и дата экзамена хранятся в localStorage браузера.</span>
     </footer>
   </div>
 
